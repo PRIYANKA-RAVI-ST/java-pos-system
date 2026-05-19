@@ -10,6 +10,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Java-SaaS-POS-System/Backend
+
     steps:
 
       - name: Checkout Source Code
@@ -44,5 +48,5 @@ jobs:
 
     steps:
 
-      - name: Railway Deployment
-        run: echo "Railway Auto Deployment Enabled"
+      - name: Railway Auto Deployment
+        run: echo "Railway automatically deploys after successful GitHub push"
