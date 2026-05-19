@@ -21,17 +21,17 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Give Execute Permission
-        run: chmod +x mvnw
+      - name: Verify Maven Installation
+        run: mvn -version
 
       - name: Clean Project
-        run: ./mvnw clean
+        run: mvn clean
 
       - name: Run Test Cases
-        run: ./mvnw test
+        run: mvn test
 
       - name: Build Spring Boot Application
-        run: ./mvnw package -DskipTests
+        run: mvn package -DskipTests
 
   deploy:
 
@@ -41,6 +41,8 @@ jobs:
 
     steps:
 
-      - name: Trigger Railway Deployment
-        run: echo "Railway Auto Deploy Triggered"
-        
+      - name: Railway Deployment Trigger
+        run: |
+          echo "Build Successful"
+          echo "Railway automatically deploys from GitHub repository"
+          echo "Deployment Platform: Railway"
