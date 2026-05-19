@@ -15,6 +15,9 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
+      - name: List Files
+        run: ls -la
+
       - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
@@ -41,8 +44,5 @@ jobs:
 
     steps:
 
-      - name: Railway Deployment Trigger
-        run: |
-          echo "Build Successful"
-          echo "Railway automatically deploys from GitHub repository"
-          echo "Deployment Platform: Railway"
+      - name: Railway Deployment
+        run: echo "Railway Auto Deployment Enabled"
