@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN chmod +x mvn
+RUN chmod +x mvnw
 
-RUN ./mvn clean package -DskipTests
+RUN ./mvnw clean package -DskipTests
 
 CMD ["java","-jar","target/*.jar"]
