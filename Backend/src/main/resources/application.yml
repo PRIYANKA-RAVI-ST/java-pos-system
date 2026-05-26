@@ -3,15 +3,10 @@ spring:
     name: pos-system
 
   datasource:
-    server.port=${PORT:5000}
-
-    spring.datasource.url=${DB_URL}
-    spring.datasource.username=${DB_USERNAME}
-    spring.datasource.password=${DB_PASSWORD}
-    spring.datasource.driver-class-name=org.postgresql.Driver
-
-    spring.jpa.hibernate.ddl-auto=update
-    spring.jpa.show-sql=true
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
@@ -21,8 +16,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: your email
-    password: your gmail app password
+    username: ${MAIL_USERNAME:your-email}
+    password: ${MAIL_PASSWORD:your-gmail-app-password}
     properties:
       mail:
         smtp:
@@ -30,34 +25,24 @@ spring:
           starttls:
             enable: true
 
-  devtools:
-    livereload:
-      enabled: true
-
 server:
-   port: 5000
-
+  port: ${PORT:5000}
 
 razorpay:
   api:
-    key: your razor pay key
-    secret: your razorpay secret key
+    key: ${RAZORPAY_KEY:your-razorpay-key}
+    secret: ${RAZORPAY_SECRET:your-razorpay-secret}
 
 stripe:
   api:
-    key: your stripe key
-
-
+    key: ${STRIPE_KEY:your-stripe-key}
 
 app:
   frontend:
-    reset-url: http://localhost:5173/auth/reset-password?token=
+    reset-url: ${FRONTEND_RESET_URL:http://localhost:5173/auth/reset-password?token=}
 
 logging:
   level:
     org:
       hibernate:
         SQL: DEBUG
-        type:
-          descriptor:
-            sql: TRACE
